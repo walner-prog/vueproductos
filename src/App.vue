@@ -1,10 +1,43 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/about">Lista de libros</router-link>
   </nav>
   <router-view/>
+
+  <div id="app" class="container mt-5">
+    
+
+  </div>
+
+  
 </template>
+
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      libros: [],
+    };
+  },
+  mounted() {
+    // Hacer una solicitud GET a la API
+    axios.get('http://localhost:3000/libros')
+      .then(response => {
+        // Manejar los datos obtenidos
+        this.libros = response.data.libros;
+      })
+      .catch(error => {
+        // Manejar errores
+        console.error('Error al obtener libros:', error);
+      });
+  },
+};
+</script>
+
 
 <style>
 #app {
@@ -13,6 +46,13 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  
+  
+}
+
+.container thead{
+  background-color: darkslategray;
+  color: darkgreen;
 }
 
 nav {
@@ -26,5 +66,8 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+.tr-encabezado{
+  background-color: darkslategray;
 }
 </style>
