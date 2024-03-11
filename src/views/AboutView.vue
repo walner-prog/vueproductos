@@ -16,35 +16,30 @@
 <!--<input v-model="name" placeholder="Buscar por nombre del producto " value="category">
 <button @click="filtrarProductosPorNombre">Buscar</button>
      -->
-    <table class="table table-bordered text-bg-success text-white table-responsive">
-      <thead>
-        <tr class=" text-warning">
-          <th>ID</th>
-          <th @click="ordenarPor('name')">Nombre</th>
-          <th>Descripción</th>
-          <th>Precio</th>
-          <th>Categoría</th>
-         
-         
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="product in products" :key="product.id">
-          <td>{{ product.id }}</td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.description }}</td>
-          <td>{{ product.price }} USD</td>
-          <td>{{ product.category }}</td>
-         <!-- <td>
-            <img :src="product.image" alt="Product Image" style="max-width: 50px; max-height: 50px;">
-          </td>-->
-          <!--<td>
-            <button @click="actualizarProducto(product.id, updatedProduct)">Actualizar</button>
-            <button @click="eliminarProducto(product.id)">Eliminar</button>
-          </td>-->
-        </tr>
-      </tbody>
-    </table>
+     <div class="table-responsive">
+      <table class="table table-bordered text-bg-success text-white">
+        <thead>
+          <tr class="text-warning">
+            <th>ID</th>
+            <th @click="ordenarPor('name')">Nombre</th>
+            <th class="bg-white">Descripción</th>
+            <th class="bg-white">Precio</th>
+            <th class="bg-white">Categoría</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="product in products" :key="product.id">
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price }} USD</td>
+            <td>{{ product.category }}</td>
+            <!-- Resto de las celdas de la fila -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
 
     <b-pagination
     v-if="totalPages > 1"
