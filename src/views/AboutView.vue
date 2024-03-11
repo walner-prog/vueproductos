@@ -19,16 +19,16 @@
      <div class="table-responsive">
       <table class="table table-bordered text-bg-success text-white">
         <thead>
-          <tr class="text-warning">
+          <tr class="">
             <th>ID</th>
             <th @click="ordenarPor('name')">Nombre</th>
-            <th class="bg-white">Descripción</th>
-            <th class="bg-white">Precio</th>
-            <th class="bg-white">Categoría</th>
+            <th>Descripción</th>
+            <th >Precio</th>
+            <th >Categoría</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="product in products" :key="product.id">
+          <tr class=" text-white" v-for="product in products" :key="product.id">
             <td>{{ product.id }}</td>
             <td>{{ product.name }}</td>
             <td>{{ product.description }}</td>
