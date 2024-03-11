@@ -13,19 +13,18 @@
     <!-- Agregar un campo de entrada para la búsqueda por categoría -->
 <input v-model="categoriaBusqueda" placeholder="Buscar por categoría " value="category" >
 <button class="buscarcategory" @click="filtrarPorCategoria">Buscar</button>
-
-<input v-model="name" placeholder="Buscar por nombre del producto " value="category">
+<!--<input v-model="name" placeholder="Buscar por nombre del producto " value="category">
 <button @click="filtrarProductosPorNombre">Buscar</button>
-     
-    <table class="table table-bordered text-bg-info text-white table-responsive">
+     -->
+    <table class="table table-bordered text-success text-white table-responsive">
       <thead>
         <tr class=" text-warning">
           <th>ID</th>
           <th @click="ordenarPor('name')">Nombre</th>
           <th>Descripción</th>
-          <th @click="ordenarPor('price')">Precio</th>
+          <th>Precio</th>
           <th>Categoría</th>
-          <th>Imagen</th>
+         
          
         </tr>
       </thead>
@@ -36,9 +35,9 @@
           <td>{{ product.description }}</td>
           <td>{{ product.price }} USD</td>
           <td>{{ product.category }}</td>
-          <td>
+         <!-- <td>
             <img :src="product.image" alt="Product Image" style="max-width: 50px; max-height: 50px;">
-          </td>
+          </td>-->
           <!--<td>
             <button @click="actualizarProducto(product.id, updatedProduct)">Actualizar</button>
             <button @click="eliminarProducto(product.id)">Eliminar</button>
@@ -79,7 +78,7 @@ export default {
     this.obtenerProductos();
 
     // Hacer la solicitud para obtener todos los productos al cargar el componente
-    axios.get('http://localhost:3000/products')
+    axios.get('https://apiproduct-nveo.onrender.com/products')
       .then(response => {
         this.products = response.data;
       })
@@ -91,7 +90,7 @@ export default {
 // Optener toods los productos
     async obtenerProductos() {
       try {
-        const response = await axios.get('http://localhost:3000/products');
+        const response = await axios.get('https://apiproduct-nveo.onrender.com/products');
         this.productos = response.data;
         this.totalProducts = this.productos.length;
       } catch (error) {
@@ -102,7 +101,7 @@ export default {
     // aptualizar  un  producto
     async actualizarProducto(productId, updatedProduct) {
       try {
-        const response = await axios.put(`http://localhost:3000/products/${productId}`, updatedProduct);
+        const response = await axios.put(`https://apiproduct-nveo.onrender.com/products/${productId}`, updatedProduct);
         console.log(response.data); // Aquí puedes manejar la respuesta de la API
       } catch (error) {
         console.error('Error al actualizar el producto', error);
@@ -117,7 +116,7 @@ export default {
      // Eliminar  un  producto
     async eliminarProducto(productId) {
       try {
-        await axios.delete(`http://localhost:3000/products/${productId}`);
+        await axios.delete(`https://apiproduct-nveo.onrender.com/products/${productId}`);
         this.obtenerProductos();
       } catch (error) {
         console.error('Error al eliminar el producto:', error);
@@ -125,7 +124,7 @@ export default {
     },
     async filtrarProductosPorNombre(name) {
       try {
-        const response = await axios.get(`http://localhost:3000/products/filter/name?name=${name}`);
+        const response = await axios.get(`https://apiproduct-nveo.onrender.com/products/filter/name?name=${name}`);
         console.log(response.data); // Aquí puedes manejar la respuesta de la API
          // Filtrar los productos por categoría
          this.products = this.products.filter(product =>
