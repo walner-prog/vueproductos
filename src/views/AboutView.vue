@@ -16,7 +16,7 @@
 <!--<input v-model="name" placeholder="Buscar por nombre del producto " value="category">
 <button @click="filtrarProductosPorNombre">Buscar</button>
      -->
-    <table class="table table-bordered text-success text-white table-responsive">
+    <table class="table table-bordered text-bg-success text-white table-responsive">
       <thead>
         <tr class=" text-warning">
           <th>ID</th>
