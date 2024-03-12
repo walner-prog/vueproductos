@@ -170,100 +170,70 @@ export default {
 
 </script>
 
-
 <style scoped>
-/* Estilos específicos del componente si es necesario */
-table {
+/* Estilos específicos del componente */
+.container {
+  margin-top: 20px;
+}
+
+.table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
 }
 
 th, td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
-  color:#4d4343
-}
-
-th {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-  color:#FFFFFF
 }
 
 th {
   background-color: #39CD39;
+  color: #FFFFFF;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.button-container {
+  margin-top: 10px;
 }
 
 button {
-  border-radius: 0;
-  background-color: rgb(162, 162, 255);
-}
-
-button:focus:not(:focus-visible) {
-  outline: 0;
-}
-
-input,
-button,
-select,
-optgroup,
-textarea {
-  margin: 0;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-}
-
-button,
-input {
-  overflow: visible;
-}
-
-button,
-select {
-  text-transform: none;
-}
-
-[role="button"] {
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  background-color: #4a90e2;
+  color: #FFFFFF;
   cursor: pointer;
 }
 
-select {
-  word-wrap: normal;
+button:focus {
+  outline: none;
 }
 
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button;
-}
-
-button:not(:disabled),
-[type="button"]:not(:disabled),
-[type="reset"]:not(:disabled),
-[type="submit"]:not(:disabled) {
-  cursor: pointer;
-}
-
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  padding: 0;
-  border-style: none;
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-.buscarcategory{
+.input-container {
   margin-right: 10px;
 }
 
+.input-container input {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.input-container input::placeholder {
+  color: #999;
+}
+
+.text-success {
+  color: #28a745 !important;
+}
+
+.text-danger {
+  color: #dc3545 !important;
+}
+
 </style>
+
