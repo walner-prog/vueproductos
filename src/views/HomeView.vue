@@ -1,19 +1,17 @@
 <template>
   <div>
     <h1 class="mb-4">Mi Aplicación Vue.js para Mostrar Datos de Productos</h1>
-    <p>Soy un apasionado desarrollador web y esta es una  aplicación construida con Vue.js. Aquí estoy mostrando datos  de productos en una tabla interactiva
-       a través del consumo de  
-      una API que desarrollé con Node.js y Express.js.</p>
+    <p>Soy un apasionado desarrollador web y esta es una aplicación construida con Vue.js. Aquí estoy mostrando datos de productos en una tabla interactiva a través del consumo de una API que desarrollé con Node.js y Express.js.</p>
     
     <!-- Contenedor de las tarjetas de producto -->
     <div class="row">
       <div v-for="product in paginatedProducts" :key="product.id" class="col-md-4 mb-4">
-        <div class="card">
+        <div class="card h-100 shadow">
           <div class="card-body">
-            <h5 class="card-title">{{ product.name }}</h5>
+            <h5 class="card-title text-primary">{{ product.name }}</h5>
             <p class="card-text">{{ product.description }}</p>
-            <p class="card-text">Precio: {{ product.price }} USD</p>
-            <p class="card-text">Categoría: {{ product.category }}</p>
+            <p class="card-text text-success">Precio: {{ product.price }} USD</p>
+            <p class="card-text text-info">Categoría: {{ product.category }}</p>
           </div>
         </div>
       </div>
@@ -26,6 +24,7 @@
       :total-rows="totalProducts"
       :per-page="productsPerPage"
       aria-controls="my-table"
+      class="mt-4"
     ></b-pagination>
   </div>
 </template>
@@ -71,26 +70,24 @@ export default {
 </script>
 
 <style scoped>
-.row {
-  margin-top: 20px;
+.card {
+  border-radius: 15px;
+  transition: all 0.3s ease;
 }
 
-.card-container .card {
-  width: 100%;
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .card-title {
-  font-size: 1.25rem;
-  margin-bottom: .75rem;
+  font-size: 1.5rem;
 }
 
 .card-text {
-  margin-bottom: .5rem;
+  font-size: 1.1rem;
 }
 
 .b-pagination {
-  margin-top: 20px;
+  justify-content: center;
 }
 </style>
-
-
