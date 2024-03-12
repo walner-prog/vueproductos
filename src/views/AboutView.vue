@@ -17,7 +17,7 @@
 <button @click="filtrarProductosPorNombre">Buscar</button>
      -->
      <div class="table-responsive">
-      <table class="table table-bordered text-bg-success text-white">
+      <table class="table table-bordered text-bg-info text-white">
         <thead>
           <tr class="">
             <th>ID</th>
